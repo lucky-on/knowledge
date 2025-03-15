@@ -1,0 +1,278 @@
+digraph G { style="filled" rankdir=LR
+subgraph clusterAPI_in {rank="min"
+	node [ shape=none width=0 height=0 margin=0 ]
+		API_IN_TITLE [label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="1">Input APIs</TD>
+		</TR>
+		</TABLE>>];
+
+		API_IN [label=<
+		<TABLE border="1">
+		<TR>
+		<TD port="AUDIO_in">AUDIO</TD>
+		</TR>
+		<TR>
+		<TD port="SOU_SAMPLE_INDEX_in">SOU_SAMPLE_INDEX</TD>
+		</TR>
+		<TR>
+		<TD port="TI_PROFILE_in">TI_PROFILE</TD>
+		</TR>
+		<TR>
+		<TD port="UTT_BOUNDS_in">UTT_BOUNDS</TD>
+		</TR>
+		<TR>
+		<TD port="WW_INFO_in">WW_INFO</TD>
+		</TR>
+		<TR>
+		<TD port="WW_PROFILE_in">WW_PROFILE</TD>
+		</TR>
+		</TABLE>>];
+
+}
+
+subgraph clusterAPI_out {rank="max"
+	node [ shape=none width=0 height=0 margin=0 ]
+		API_OUT_TITLE [label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="1">Output APIs</TD>
+		</TR>
+		</TABLE>>];
+
+		API_OUT [label=<
+		<TABLE border="1">
+		<TR>
+		<TD port="DMS_METRICS_out">DMS_METRICS</TD>
+		</TR>
+		<TR>
+		<TD port="ILM_METRICS_out">ILM_METRICS</TD>
+		</TR>
+		<TR>
+		<TD port="METADATA_out">METADATA</TD>
+		</TR>
+		<TR>
+		<TD port="METRICS_out">METRICS</TD>
+		</TR>
+		<TR>
+		<TD port="NULL_out">NULL</TD>
+		</TR>
+		<TR>
+		<TD port="SPEAKER_ID_RESULT_out">SPEAKER_ID_RESULT</TD>
+		</TR>
+		<TR>
+		<TD port="TI_EMBEDDING_out">TI_EMBEDDING</TD>
+		</TR>
+		<TR>
+		<TD port="WW_EMBEDDING_out">WW_EMBEDDING</TD>
+		</TR>
+		</TABLE>>];
+
+}
+
+subgraph cluster0 {fillcolor="lightblue" style="filled" label="<main>"
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		sid_shim [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">sid_shim</TD>
+		</TR>
+		<TR>
+		<TD port="result_emitted_timestamp_in" bgcolor="green">result_emitted_timestamp</TD>
+		<TD port="_MetricsJson_out" bgcolor="orange">_MetricsJson</TD>
+		</TR>
+		<TR>
+		<TD port="sou_sample_index_in" bgcolor="green">sou_sample_index</TD>
+		<TD port="dms_metrics_out" bgcolor="orange">dms_metrics</TD>
+		</TR>
+		<TR>
+		<TD port="ti_profile_in" bgcolor="green">ti_profile</TD>
+		<TD port="metadata_out" bgcolor="orange">metadata</TD>
+		</TR>
+		<TR>
+		<TD port="utterance_bounds_in" bgcolor="green">utterance_bounds</TD>
+		<TD port="speaker_id_result_out" bgcolor="orange">speaker_id_result</TD>
+		</TR>
+		<TR>
+		<TD port="ww_info_in" bgcolor="green">ww_info</TD>
+		<TD port="stream_index_out" bgcolor="orange">stream_index</TD>
+		</TR>
+		<TR>
+		<TD port="ww_profile_in" bgcolor="green">ww_profile</TD>
+		<TD port="ti_embedding_out" bgcolor="orange">ti_embedding</TD>
+		</TR>
+		<TR>
+		<TD> </TD>
+		<TD port="ww_embedding_out" bgcolor="orange">ww_embedding</TD>
+		</TR>
+		</TABLE>>];
+
+}
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		sid_profile_deser_ww [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">sid_profile_deser_ww</TD>
+		</TR>
+		<TR>
+		<TD port="serialized_profile_in" bgcolor="green">serialized_profile</TD>
+		<TD port="deserialized_profile_out" bgcolor="orange">deserialized_profile</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		sid_profile_deser_ti [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">sid_profile_deser_ti</TD>
+		</TR>
+		<TR>
+		<TD port="serialized_profile_in" bgcolor="green">serialized_profile</TD>
+		<TD port="deserialized_profile_out" bgcolor="orange">deserialized_profile</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		sid_shim [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">sid_shim</TD>
+		</TR>
+		<TR>
+		<TD port="result_emitted_timestamp_in" bgcolor="green">result_emitted_timestamp</TD>
+		<TD port="_MetricsJson_out" bgcolor="orange">_MetricsJson</TD>
+		</TR>
+		<TR>
+		<TD port="sou_sample_index_in" bgcolor="green">sou_sample_index</TD>
+		<TD port="dms_metrics_out" bgcolor="orange">dms_metrics</TD>
+		</TR>
+		<TR>
+		<TD port="ti_profile_in" bgcolor="green">ti_profile</TD>
+		<TD port="metadata_out" bgcolor="orange">metadata</TD>
+		</TR>
+		<TR>
+		<TD port="utterance_bounds_in" bgcolor="green">utterance_bounds</TD>
+		<TD port="speaker_id_result_out" bgcolor="orange">speaker_id_result</TD>
+		</TR>
+		<TR>
+		<TD port="ww_info_in" bgcolor="green">ww_info</TD>
+		<TD port="stream_index_out" bgcolor="orange">stream_index</TD>
+		</TR>
+		<TR>
+		<TD port="ww_profile_in" bgcolor="green">ww_profile</TD>
+		<TD port="ti_embedding_out" bgcolor="orange">ti_embedding</TD>
+		</TR>
+		<TR>
+		<TD> </TD>
+		<TD port="ww_embedding_out" bgcolor="orange">ww_embedding</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		result_ogg_wrapper [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">result_ogg_wrapper</TD>
+		</TR>
+		<TR>
+		<TD port="raw_data_in" bgcolor="green">raw_data</TD>
+		<TD port="ogg_data_out" bgcolor="orange">ogg_data</TD>
+		</TR>
+		<TR>
+		<TD port="stream_index_in" bgcolor="green">stream_index</TD>
+		<TD port="timestamp_out" bgcolor="orange">timestamp</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		ww_embed_ogg_wrapper [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">ww_embed_ogg_wrapper</TD>
+		</TR>
+		<TR>
+		<TD port="raw_data_in" bgcolor="green">raw_data</TD>
+		<TD port="ogg_data_out" bgcolor="orange">ogg_data</TD>
+		</TR>
+		<TR>
+		<TD port="stream_index_in" bgcolor="green">stream_index</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		ti_embed_ogg_wrapper [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">ti_embed_ogg_wrapper</TD>
+		</TR>
+		<TR>
+		<TD port="raw_data_in" bgcolor="green">raw_data</TD>
+		<TD port="ogg_data_out" bgcolor="orange">ogg_data</TD>
+		</TR>
+		<TR>
+		<TD port="stream_index_in" bgcolor="green">stream_index</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		metric_collector [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">metric_collector</TD>
+		</TR>
+		<TR>
+		<TD port="json_shim_in" bgcolor="green">json_shim</TD>
+		<TD port="_MetricsFinalJsonReport_out" bgcolor="orange">_MetricsFinalJsonReport</TD>
+		</TR>
+		<TR>
+		<TD> </TD>
+		<TD port="_MetricsJsonWrapper_out" bgcolor="orange">_MetricsJsonWrapper</TD>
+		</TR>
+		</TABLE>>];
+
+
+
+# Node connections inside each flow
+sid_shim
+
+
+# Cross Node connections
+sid_profile_deser_ww:deserialized_profile_out -> sid_shim:ww_profile_in;
+sid_profile_deser_ti:deserialized_profile_out -> sid_shim:ti_profile_in;
+sid_shim:speaker_id_result_out -> result_ogg_wrapper:raw_data_in;
+sid_shim:ww_embedding_out -> ww_embed_ogg_wrapper:raw_data_in;
+sid_shim:ti_embedding_out -> ti_embed_ogg_wrapper:raw_data_in;
+sid_shim:stream_index_out -> result_ogg_wrapper:stream_index_in;
+sid_shim:stream_index_out -> ww_embed_ogg_wrapper:stream_index_in;
+sid_shim:stream_index_out -> ti_embed_ogg_wrapper:stream_index_in;
+result_ogg_wrapper:timestamp_out -> sid_shim:result_emitted_timestamp_in;
+sid_shim:_MetricsJson_out -> metric_collector:json_shim_in;
+
+
+# API IN links
+API_IN:AUDIO_in -> sid_shim:w [style=bold color="#c53eFF"];
+API_IN:WW_INFO_in -> sid_shim:ww_info_in [style=bold color="#d755FF"];
+API_IN:WW_PROFILE_in -> sid_profile_deser_ww:serialized_profile_in [style=bold color="#14baFF"];
+API_IN:TI_PROFILE_in -> sid_profile_deser_ti:serialized_profile_in [style=bold color="#8490FF"];
+API_IN:UTT_BOUNDS_in -> sid_shim:utterance_bounds_in [style=bold color="#f8cbFF"];
+API_IN:SOU_SAMPLE_INDEX_in -> sid_shim:sou_sample_index_in [style=bold color="#cf53FF"];
+
+
+# API OUT links
+sid_shim -> NULL [style=bold color="#BB9b4b"];
+result_ogg_wrapper:ogg_data_out:e -> API_OUT:SPEAKER_ID_RESULT_out [style=bold color="#BBf404"];
+ww_embed_ogg_wrapper:ogg_data_out:e -> API_OUT:WW_EMBEDDING_out [style=bold color="#BBb752"];
+ti_embed_ogg_wrapper:ogg_data_out:e -> API_OUT:TI_EMBEDDING_out [style=bold color="#BB6fd7"];
+sid_shim:metadata_out:e -> API_OUT:METADATA_out [style=bold color="#BB474e"];
+metric_collector:_MetricsFinalJsonReport_out:e -> API_OUT:METRICS_out [style=bold color="#BB308d"];
+metric_collector:_MetricsJsonWrapper_out:e -> API_OUT:ILM_METRICS_out [style=bold color="#BB8042"];
+sid_shim:dms_metrics_out:e -> API_OUT:DMS_METRICS_out [style=bold color="#BB4b3e"];
+
+}

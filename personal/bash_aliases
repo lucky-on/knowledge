@@ -1,0 +1,52 @@
+echo "Loading ~/.aliases"
+# Long format list
+alias ls='ls -GFh'
+alias ll='ls -lrt'
+alias la='less ~/.bash_aliases'
+
+# Print my public IP
+alias myip="curl ipinfo.io/ip; echo '' "
+
+# Create directory and navigate into it
+mkcd ()
+{
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+alias k='docker run --rm -it --entrypoint bash -h test.appiancorp.com -v ~/repo/ae/server/_bin/k/k3lic/k3-linux.lic:/usr/local/appian/ae/server/_bin/k/linux64/k3.lic artifacts.eng.appianci.net/eng-docker-prod/ae/service-manager:test-appian_master-db090c7cc20-java11'
+alias kcode='cd ~/repo/ae; docker-compose exec --user appian service-manager bash'
+# to trigger CI job
+alias ci='git push -f ci HEAD'
+
+# to get full list of test
+alias get-test-names="git ls-files -- '*.jenkinsfile' | xargs -n1 basename | awk -F. '{print $1}' | sort"
+alias get-extentions-cout="find . -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort | uniq -c | sort -rn"
+
+alias repo-build-graph="gource --fullscreen --screen 2 --dir-name-depth 3 --filename-time 2 --hide users --seconds-per-day 0.1 ."
+
+#kubernetis
+alias kns='kubectl config set-context --current --namespace'
+alias update-kubeconfig='~/repo/clusters/scripts/update-kubeconfig'
+
+#docker
+alias docker-stop-all='docker stop $(docker ps -q)'
+
+function ugrep {
+  for i in $(find ~/repo -maxdepth 3 -name .git -exec dirname {} \; 2> /dev/null); do git -C $i grep "$@" | awk -v path=$i '{print path "/" $0}'; done
+}
+
+function ulsfiles {
+  for i in $(find -L ~/repo -maxdepth 3 -name .git -exec dirname {} \; 2> /dev/null); do
+    git -C $i ls-files "$@" | awk -v path=$i '{print path "/" $0}'
+  done
+}
+
+function git-praise {
+  git grep -n "$*" | cut -d: -f 1-2 | sed "s/:\(.*\)/ -L\1,+1/" | xargs -n 2 git --no-pager blame -w -fn HEAD
+}
+
+# find in files
+alias find-in-files='grep -rnw . -e '
+
+#format code
+alias format-code='~/tools/format_code.sh'

@@ -1,0 +1,145 @@
+{
+  "nodes": [
+    {
+      "unique_name": "audio_framer",
+      "config_file": "audio_framer.json",
+      "builder": "AudioFramer"
+    },
+    {
+      "unique_name": "feature_extractor",
+      "config_file": "feature_extractor.json",
+      "builder": "FeatureExtractor"
+    },
+    {
+      "unique_name": "frame_filter_vad",
+      "config_file": "frame_filter_vad.json",
+      "builder": "FrameFilter"
+    },
+    {
+      "unique_name": "global_channel_norm",
+      "config_file": "global_channel_norm.json",
+      "builder": "GlobalChannelNorm"
+    },
+    {
+      "unique_name": "frame_stacker",
+      "config_file": "frame_stacker.json",
+      "builder": "FrameStacker"
+    },
+    {
+      "unique_name": "down_sampler",
+      "config_file": "down_sampler.json",
+      "builder": "DownSampler"
+    },
+    {
+      "unique_name": "ti_embedding_generator",
+      "config_file": "ti_embedding_generator.json",
+      "builder": "TiEmbeddingGenerator"
+    },
+    {
+      "unique_name": "ti_scorer",
+      "config_file": "ti_scorer.json",
+      "builder": "TiScorer"
+    },
+    {
+      "unique_name": "sid_profile_deser_ti",
+      "config_file": "ti_deserialization_node.json",
+      "builder": "SidProfileDeSerBuilder"
+    },
+    {
+      "unique_name": "result_ogg_wrapper",
+      "config_file": "result_ogg.json",
+      "builder": "StringOggWrapperBuilder"
+    },
+    {
+      "unique_name": "metric_collector",
+      "config_file": "metric_collector.json",
+      "builder": "metric_collector_builder"
+    }
+  ],
+  "flows": [
+    {
+      "unique_name": "<main>",
+      "node_sequence": [
+        "audio_framer",
+        "feature_extractor",
+        "frame_filter_vad",
+        "global_channel_norm",
+        "frame_stacker",
+        "down_sampler",
+        "ti_embedding_generator",
+        "ti_scorer"
+      ]
+    }
+  ],
+  "pipe_input_apis": [
+    {
+      "external": "AUDIO",
+      "internal": "<main>"
+    },
+    {
+      "external": "TI_PROFILE",
+      "internal": "sid_profile_deser_ti:serialized_profile"
+    },
+    {
+      "external": "UTT_BOUNDS",
+      "internal": "ti_scorer:utterance_bounds"
+    }
+  ],
+  "pipe_output_apis": [
+    {
+      "external": "SPEAKER_ID_RESULT",
+      "internal": "result_ogg_wrapper:ogg_data"
+    },
+    {
+      "external": "METADATA",
+      "internal": "metric_collector:_Metadata"
+    },
+    {
+      "external": "ERRORS",
+      "internal": "_Any:_Errors"
+    },
+    {
+      "external": "LOGS",
+      "internal": "_Any:_Logs"
+    },
+    {
+      "external": "ILM_METRICS",
+      "internal": "metric_collector:_MetricsJsonWrapper"
+    },
+    {
+      "external": "DMS_METRICS",
+      "internal": "metric_collector:_MetricsDms"
+    }
+  ],
+  "event_links": [
+    {
+      "link_src": "sid_profile_deser_ti",
+      "link_src_port": "deserialized_profile",
+      "link_dst": "ti_scorer",
+      "link_dst_port": "ti_profile"
+    },
+    {
+      "link_src": "ti_scorer",
+      "link_src_port": "speaker_id_result",
+      "link_dst": "result_ogg_wrapper",
+      "link_dst_port": "raw_data"
+    },
+    {
+      "link_src": "ti_scorer",
+      "link_src_port": "stream_index",
+      "link_dst": "result_ogg_wrapper",
+      "link_dst_port": "stream_index"
+    },
+    {
+      "link_src": "result_ogg_wrapper",
+      "link_src_port": "timestamp",
+      "link_dst": "metric_collector",
+      "link_dst_port": "result_emitted_timestamp"
+    }
+  ],
+  "off_stream_nodes": [
+    "sid_profile_deser_ti",
+    "result_ogg_wrapper",
+    "metric_collector"
+  ]
+}

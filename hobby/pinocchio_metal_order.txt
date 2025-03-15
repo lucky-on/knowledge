@@ -1,0 +1,82 @@
+cental metal 
+
+Chairs - Homes 6 peices
+
+steal (2 x 2 | 0.188 | 4.460)
+1'10" x 8 x 6 = 48
+1'6" x 6 x 6 = 24
+
+heavy (aluminium 1.5 x 1.5 inch, 1/4)
+8'2" x 8
+9' x 8
+9'10" x 8
+
+light (aluminium 1.5 x 1.5 inch, 1/8)
+1' 10 1/2" x 58
+7' 4 1/4" x 6
+2' 10" x 10
+
+// NOT FINALIZED
+
+
+tubing (2 x 1-1/2 |.120)
+
+7' x 4
+3' 9" x 8
+6' 7" 9/16 x 6
+
+total 98'
+
+steps high
+5'4" x 2
+3'9" x 8
+5'9" x 2
+1'4" x 2
+1' x 8
+6" x 8
+one: 54'+ 154" = 67'
+total 67 * 2 = 134'
+
+
+steps low
+3'2" x 4
+3'9" x 6
+3'3"9/16 x 4
+1'2" x 2
+18" x 10
+3'10" x 2
+2'11" x 1
+one: 52' + 293" = 52' +25' = 77'
+total: 77*2 = 154'
+
+Total length, 386'
+2.660 lb per foot = 386 * 2.66 = 1024 lb -> 465 kg
+
+tubing 1.5 x 1.5 (1-1/2 x 1-1/2 | .120)
+4' x 2
+one: 8'
+total 8'*2 = 16'
+2.250 lb per foot -> 16 * 2.25 = 36 lb -> 16 kg
+
+
+
+Wood
+
+plywood
+4'x8'x5/8 x 9 pieces
+4'x8'x1/4 x 9 pieces
+
+2"x4"
+
+7' x 3		-> 8'x 3  -> 
+4' x 26     -> 8'x 13 -> 12'x8
+3'2" x 26   -> 8'x 13 -> 12'x8
+7" x 36     -> 8'x3
+2' x 4      -> 8'
+total 8' 33 pieces
+
+
+
+
+
+

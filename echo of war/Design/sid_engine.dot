@@ -1,0 +1,275 @@
+digraph G { style="filled" rankdir=LR
+subgraph clusterAPI_in {rank="min"
+	node [ shape=none width=0 height=0 margin=0 ]
+		API_IN_TITLE [label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="1">Input APIs</TD>
+		</TR>
+		</TABLE>>];
+
+		API_IN [label=<
+		<TABLE border="1">
+		<TR>
+		<TD port="AUDIO_in">AUDIO</TD>
+		</TR>
+		<TR>
+		<TD port="TI_PROFILE_in">TI_PROFILE</TD>
+		</TR>
+		<TR>
+		<TD port="UTT_BOUNDS_in">UTT_BOUNDS</TD>
+		</TR>
+		</TABLE>>];
+
+}
+
+subgraph clusterAPI_out {rank="max"
+	node [ shape=none width=0 height=0 margin=0 ]
+		API_OUT_TITLE [label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="1">Output APIs</TD>
+		</TR>
+		</TABLE>>];
+
+		API_OUT [label=<
+		<TABLE border="1">
+		<TR>
+		<TD port="DMS_METRICS_out">DMS_METRICS</TD>
+		</TR>
+		<TR>
+		<TD port="ILM_METRICS_out">ILM_METRICS</TD>
+		</TR>
+		<TR>
+		<TD port="METADATA_out">METADATA</TD>
+		</TR>
+		<TR>
+		<TD port="SPEAKER_ID_RESULT_out">SPEAKER_ID_RESULT</TD>
+		</TR>
+		</TABLE>>];
+
+}
+
+subgraph cluster0 {fillcolor="lightblue" style="filled" label="<main>"
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		audio_framer [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">audio_framer</TD>
+		</TR>
+		</TABLE>>];
+
+		feature_extractor [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">feature_extractor</TD>
+		</TR>
+		</TABLE>>];
+
+		frame_filter_vad [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">frame_filter_vad</TD>
+		</TR>
+		</TABLE>>];
+
+		global_channel_norm [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">global_channel_norm</TD>
+		</TR>
+		</TABLE>>];
+
+		frame_stacker [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">frame_stacker</TD>
+		</TR>
+		</TABLE>>];
+
+		down_sampler [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">down_sampler</TD>
+		</TR>
+		</TABLE>>];
+
+		ti_embedding_generator [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">ti_embedding_generator</TD>
+		</TR>
+		</TABLE>>];
+
+		ti_scorer [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">ti_scorer</TD>
+		</TR>
+		<TR>
+		<TD port="ti_profile_in" bgcolor="green">ti_profile</TD>
+		<TD port="speaker_id_result_out" bgcolor="orange">speaker_id_result</TD>
+		</TR>
+		<TR>
+		<TD port="utterance_bounds_in" bgcolor="green">utterance_bounds</TD>
+		<TD port="stream_index_out" bgcolor="orange">stream_index</TD>
+		</TR>
+		</TABLE>>];
+
+}
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		audio_framer [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">audio_framer</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		feature_extractor [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">feature_extractor</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		frame_filter_vad [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">frame_filter_vad</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		global_channel_norm [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">global_channel_norm</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		frame_stacker [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">frame_stacker</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		down_sampler [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">down_sampler</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		ti_embedding_generator [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">ti_embedding_generator</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		ti_scorer [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">ti_scorer</TD>
+		</TR>
+		<TR>
+		<TD port="ti_profile_in" bgcolor="green">ti_profile</TD>
+		<TD port="speaker_id_result_out" bgcolor="orange">speaker_id_result</TD>
+		</TR>
+		<TR>
+		<TD port="utterance_bounds_in" bgcolor="green">utterance_bounds</TD>
+		<TD port="stream_index_out" bgcolor="orange">stream_index</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		sid_profile_deser_ti [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">sid_profile_deser_ti</TD>
+		</TR>
+		<TR>
+		<TD port="serialized_profile_in" bgcolor="green">serialized_profile</TD>
+		<TD port="deserialized_profile_out" bgcolor="orange">deserialized_profile</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		result_ogg_wrapper [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">result_ogg_wrapper</TD>
+		</TR>
+		<TR>
+		<TD port="raw_data_in" bgcolor="green">raw_data</TD>
+		<TD port="ogg_data_out" bgcolor="orange">ogg_data</TD>
+		</TR>
+		<TR>
+		<TD port="stream_index_in" bgcolor="green">stream_index</TD>
+		<TD port="timestamp_out" bgcolor="orange">timestamp</TD>
+		</TR>
+		</TABLE>>];
+
+
+		node [fillcolor="gray:white" style="radial" gradientangle=180]
+		metric_collector [shape=box style="rounded,filled" label=<
+		<TABLE border="0">
+		<TR>
+		<TD colspan="2">metric_collector</TD>
+		</TR>
+		<TR>
+		<TD port="result_emitted_timestamp_in" bgcolor="green">result_emitted_timestamp</TD>
+		<TD port="_Metadata_out" bgcolor="orange">_Metadata</TD>
+		</TR>
+		<TR>
+		<TD> </TD>
+		<TD port="_MetricsDms_out" bgcolor="orange">_MetricsDms</TD>
+		</TR>
+		<TR>
+		<TD> </TD>
+		<TD port="_MetricsJsonWrapper_out" bgcolor="orange">_MetricsJsonWrapper</TD>
+		</TR>
+		</TABLE>>];
+
+
+
+# Node connections inside each flow
+audio_framer -> feature_extractor -> frame_filter_vad -> global_channel_norm -> frame_stacker -> down_sampler -> ti_embedding_generator -> ti_scorer
+
+
+# Cross Node connections
+sid_profile_deser_ti:deserialized_profile_out -> ti_scorer:ti_profile_in;
+ti_scorer:speaker_id_result_out -> result_ogg_wrapper:raw_data_in;
+ti_scorer:stream_index_out -> result_ogg_wrapper:stream_index_in;
+result_ogg_wrapper:timestamp_out -> metric_collector:result_emitted_timestamp_in;
+
+
+# API IN links
+API_IN:AUDIO_in -> audio_framer:w [style=bold color="#c53eFF"];
+API_IN:TI_PROFILE_in -> sid_profile_deser_ti:serialized_profile_in [style=bold color="#d755FF"];
+API_IN:UTT_BOUNDS_in -> ti_scorer:utterance_bounds_in [style=bold color="#14baFF"];
+
+
+# API OUT links
+result_ogg_wrapper:ogg_data_out:e -> API_OUT:SPEAKER_ID_RESULT_out [style=bold color="#BB8490"];
+metric_collector:_Metadata_out:e -> API_OUT:METADATA_out [style=bold color="#BBf8cb"];
+metric_collector:_MetricsJsonWrapper_out:e -> API_OUT:ILM_METRICS_out [style=bold color="#BBf404"];
+metric_collector:_MetricsDms_out:e -> API_OUT:DMS_METRICS_out [style=bold color="#BBb752"];
+
+}

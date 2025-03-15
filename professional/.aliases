@@ -1,0 +1,10 @@
+echo "Loading ~/.aliases"
+alias cdp='cd ~/Pipe/src; ll'
+alias ls='ls -GFh'
+alias ll='ls -lrt'
+alias ssh-buntu='ssh didenkos-ubuntu.aka.amazon.com'
+alias cloud='ssh didenkos-cloud.corp.amazon.com'
+alias ssh-mac='ssh didenkos-mac.corp.amazon.com'
+alias sync-sharable='rsync -auv --partial --progress --rsh=ssh /Users/didenkos/Dropbox/_sharable/ didenkos-cloud.corp.amazon.com:/home/didenkos/sharable'
+alias pypa='export PYTHONPATH=/Users/didenkos/work/pryon/src/Pryon/pryon/py'
+alias code-format="find -E ./src -regex '.*(h|cc)$' -exec bash -c 'clang-format -i -style=file {}' \; && find -E ./tst -regex '.*(h|cc)$' -exec bash -c 'clang-format -i -style=file {}' \;"

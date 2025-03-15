@@ -1,0 +1,11 @@
+base = {
+  workspace = didenkos_framework;
+  versionSet = "Pryon/Pipe-mini-live";
+};
+packages = { 
+  PryonNode-8.0 = .; 
+  PryonFlow-5.0 = .;
+  PryonPipe-7.1 = .;
+  PryonConfig-1.0 = .;
+  PryonSwarm-2.0 = .;
+};

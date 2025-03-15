@@ -1,0 +1,185 @@
+{
+  "nodes": [
+    {
+      "unique_name": "sid_profile_deser_ww",
+      "config_file": "ww_deserialization_node.json",
+      "builder": "SidProfileDeSerBuilder"
+    },
+    {
+      "unique_name": "sid_profile_deser_ti",
+      "config_file": "ti_deserialization_node.json",
+      "builder": "SidProfileDeSerBuilder"
+    },
+    {
+      "unique_name": "sid_shim",
+      "config_file": "shim_node.json",
+      "builder": "SidShimBuilder"
+    },
+    {
+      "unique_name": "result_ogg_wrapper",
+      "config_file": "result_ogg.json",
+      "builder": "StringOggWrapperBuilder"
+    },
+    {
+      "unique_name": "ww_embed_ogg_wrapper",
+      "config_file": "ww_ogg.json",
+      "builder": "StringOggWrapperBuilder"
+    },
+    {
+      "unique_name": "ti_embed_ogg_wrapper",
+      "config_file": "ti_ogg.json",
+      "builder": "StringOggWrapperBuilder"
+    },
+    {
+      "unique_name": "metric_collector",
+      "config_file": "metric_collector.json",
+      "builder": "metric_collector_builder"
+    }
+  ],
+  "flows": [
+    {
+      "unique_name": "<main>",
+      "node_sequence": [
+        "sid_shim"
+      ]
+    }
+  ],
+  "pipe_input_apis": [
+    {
+      "external": "AUDIO",
+      "internal": "<main>"
+    },
+    {
+      "external": "WW_INFO",
+      "internal": "sid_shim:ww_info"
+    },
+    {
+      "external": "WW_PROFILE",
+      "internal": "sid_profile_deser_ww:serialized_profile"
+    },
+    {
+      "external": "TI_PROFILE",
+      "internal": "sid_profile_deser_ti:serialized_profile"
+    },
+    {
+      "external": "UTT_BOUNDS",
+      "internal": "sid_shim:utterance_bounds"
+    },
+    {
+      "external": "SOU_SAMPLE_INDEX",
+      "internal": "sid_shim:sou_sample_index"
+    }
+  ],
+  "pipe_output_apis": [
+    {
+      "external": "NULL",
+      "internal": "<main>"
+    },
+    {
+      "external": "SPEAKER_ID_RESULT",
+      "internal": "result_ogg_wrapper:ogg_data"
+    },
+    {
+      "external": "WW_EMBEDDING",
+      "internal": "ww_embed_ogg_wrapper:ogg_data"
+    },
+    {
+      "external": "TI_EMBEDDING",
+      "internal": "ti_embed_ogg_wrapper:ogg_data"
+    },
+    {
+      "external": "METADATA",
+      "internal": "sid_shim:metadata"
+    },
+    {
+      "external": "ERRORS",
+      "internal": "_Any:_Errors"
+    },
+    {
+      "external": "LOGS",
+      "internal": "_Any:_Logs"
+    },
+    {
+      "external": "METRICS",
+      "internal": "metric_collector:_MetricsFinalJsonReport"
+    },
+    {
+      "external": "ILM_METRICS",
+      "internal": "metric_collector:_MetricsJsonWrapper"
+    },
+    {
+      "external": "DMS_METRICS",
+      "internal": "sid_shim:dms_metrics"
+    }
+  ],
+  "event_links": [
+    {
+      "link_src": "sid_profile_deser_ww",
+      "link_src_port": "deserialized_profile",
+      "link_dst": "sid_shim",
+      "link_dst_port": "ww_profile"
+    },
+    {
+      "link_src": "sid_profile_deser_ti",
+      "link_src_port": "deserialized_profile",
+      "link_dst": "sid_shim",
+      "link_dst_port": "ti_profile"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "speaker_id_result",
+      "link_dst": "result_ogg_wrapper",
+      "link_dst_port": "raw_data"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "ww_embedding",
+      "link_dst": "ww_embed_ogg_wrapper",
+      "link_dst_port": "raw_data"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "ti_embedding",
+      "link_dst": "ti_embed_ogg_wrapper",
+      "link_dst_port": "raw_data"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "stream_index",
+      "link_dst": "result_ogg_wrapper",
+      "link_dst_port": "stream_index"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "stream_index",
+      "link_dst": "ww_embed_ogg_wrapper",
+      "link_dst_port": "stream_index"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "stream_index",
+      "link_dst": "ti_embed_ogg_wrapper",
+      "link_dst_port": "stream_index"
+    },
+    {
+      "link_src": "result_ogg_wrapper",
+      "link_src_port": "timestamp",
+      "link_dst": "sid_shim",
+      "link_dst_port": "result_emitted_timestamp"
+    },
+    {
+      "link_src": "sid_shim",
+      "link_src_port": "_MetricsJson",
+      "link_dst": "metric_collector",
+      "link_dst_port": "json_shim"
+    }
+  ],
+  "off_stream_nodes": [
+    "sid_profile_deser_ww",
+    "sid_profile_deser_ti",
+    "result_ogg_wrapper",
+    "ww_embed_ogg_wrapper",
+    "ti_embed_ogg_wrapper",
+    "metric_collector"
+  ]
+}

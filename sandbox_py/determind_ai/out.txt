@@ -1,0 +1,90 @@
+0 is the additive identity.
+1 is the most common leading digit in many sets of data, a consequence of Benford's law.
+1 is also the first and second numbers in the Fibonacci sequence and is the first number in many other mathematical sequences.
+2 is many properties in mathematics.
+3 is the first odd prime number, and the second smallest prime.
+5 is the third prime number.
+8 is all powers of 2 ;(2x), have an aliquot sum of one less than themselves.
+13 is the number of Archimedian solids.
+21 is the smallest number of differently sized squares needed to square the square.
+34 is the ninth distinct semiprime and has four divisors including unity and itself.
+55 is a semiprime, being the product of 5 and 11 and it is the 2nd member of the (5.q) semiprime family.
+89 is the 24th prime number, following 83 and preceding 97.
+144 is the smallest number with exactly 15 divisors.
+233 is an irregular prime, a full reptend prime, a cousin prime, a Chen prime, a Fibonacci prime and a sexy prime.
+377 is the 14^{th} Fibonacci number.
+610 is the smallest Fibonacci number that begins with 6.
+987 is the 16^{th} Fibonacci number.
+1597 is the 17^{th} Fibonacci number.
+2584 is the 18^{th} Fibonacci number .
+4181 is the first composite number in the Fibonacci sequence with a prime index.
+6765 is the 20^{th} Fibonacci number.
+10946 is an unremarkable number.
+17711 is an uninteresting number.
+28657 is a boring number.
+46368 is an uninteresting number.
+75025 is an unremarkable number.
+121393 is an unremarkable number.
+196418 is an uninteresting number.
+317811 is an unremarkable number.
+514229 is a boring number.
+0 is the additive identity.
+1 is the first figurate number of every kind, such as triangular number, pentagonal number and centered hexagonal number, to name just a few.
+1 is the first figurate number of every kind, such as triangular number, pentagonal number and centered hexagonal number, to name just a few.
+2 is many properties in mathematics.
+3 is the first unique prime due to the properties of its reciprocal.
+5 is also the number of Platonic solids.
+8 is all powers of 2 ;(2x), have an aliquot sum of one less than themselves.
+13 is the number of Archimedian solids.
+21 is the smallest number of distinct squares needed to tile a square.
+34 is the ninth Fibonacci number and a companion Pell number.
+55 is a semiprime, being the product of 5 and 11 and it is the 2nd member of the (5.q) semiprime family.
+89 is the 24th prime number, following 83 and preceding 97.
+144 is the smallest number with exactly 15 divisors.
+233 is the 13th Fibonacci number, being the sum of 89 and 144.
+377 is the 14^{th} Fibonacci number.
+610 is the smallest Fibonacci number that begins with 6.
+987 is the 16^{th} Fibonacci number.
+1597 is the 17^{th} Fibonacci number.
+2584 is the 18^{th} Fibonacci number .
+4181 is the first composite number in the Fibonacci sequence with a prime index.
+6765 is the 20^{th} Fibonacci number.
+10946 is an uninteresting number.
+17711 is an uninteresting number.
+28657 is an uninteresting number.
+46368 is an uninteresting number.
+75025 is a boring number.
+121393 is an unremarkable number.
+196418 is an unremarkable number.
+317811 is a boring number.
+514229 is a number for which we're missing a fact (submit one to numbersapi at google mail!).
+0 is the additive identity.
+1 is also the first and second numbers in the Fibonacci sequence and is the first number in many other mathematical sequences.
+1 is the most common leading digit in many sets of data, a consequence of Benford's law.
+2 is the only number x such that the sum of the reciprocals of the powers of x equals itself.
+3 is the first odd prime number, and the second smallest prime.
+5 is the number of Platonic solids.
+8 is the base of the octal number system, which is mostly used with computers.
+13 is the number of Archimedian solids.
+21 is the fifth discrete Semiprime and the second in the (3.q) family.
+34 is the ninth Fibonacci number and a companion Pell number.
+55 is the interesting property that it is the 10th Fibonacci number and the sum of the numbers 1 to 10.
+89 is also a Markov number, appearing in solutions to the Markov Diophantine equation with other odd-indexed Fibonacci numbers.
+144 is the largest square in the Fibonacci sequence.
+233 is the 13th Fibonacci number, being the sum of 89 and 144.
+377 is the 14^{th} Fibonacci number.
+610 is the smallest Fibonacci number that begins with 6.
+987 is the 16^{th} Fibonacci number.
+1597 is the 17^{th} Fibonacci number.
+2584 is the 18^{th} Fibonacci number .
+4181 is the first composite number in the Fibonacci sequence with a prime index.
+6765 is the 20^{th} Fibonacci number.
+10946 is a boring number.
+17711 is a boring number.
+28657 is a boring number.
+46368 is an uninteresting number.
+75025 is an uninteresting number.
+121393 is a boring number.
+196418 is an unremarkable number.
+317811 is an unremarkable number.
+514229 is a boring number.
