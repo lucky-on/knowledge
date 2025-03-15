@@ -1,8 +1,8 @@
 Information
 
-SSN  SERGEY:    860-90-7684 
-SSN  ANTONINA: 	818-73-5793
-SSN  MATVEY:    088-51-5213
+SSN SERGEY:    860-90-7684
+SSN ANTONINA: 	818-73-5793
+SSN MATVEY:    088-51-5213
 
 MATVEY ITIN:  965928951
 VARVARA ITIN: 965928956
@@ -17,7 +17,7 @@ online saving (Я люблю вас всех В дрА дрМ дрВ)
 https://www.marcus.com/us/en/login
 Боже Благослави Россию В дрМ
 
-Empl ID: 100610363  Get latest I-94 https://i94.cbp.dhs.gov/I94/#/home  Amazon 911
+Empl ID: 100610363Get latest I-94 https://i94.cbp.dhs.gov/I94/#/homeAmazon 911
 1. EAP (EMPLOYEE ASSISTANCE PROGRAM) Phone: 1-855-435-4333 
 2. ERC Help line, any HR questions: 1-888-892-7180. (Payroll, Leave, Medical accommodation, Benefits, Stocks, Verification of Employment,Payments)
 3. Benefit Service Center

@@ -1,6 +1,0 @@
-digraph CppTools
-{
-  OpLibrary -> make_build_options
-  OpProgram -> make_build_options
-  OpUnitTest -> make_build_options
-}

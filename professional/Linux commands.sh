@@ -100,3 +100,8 @@ diff -burp file1 file2 | vim -R -
 tmux set-option -g history-limit 15000 \; new -s new_name
 
 for p in $(cat ~/dev-shared/arnold_packages_sid.txt) ; do arnold ws add --from-package "${p}" ; done
+
+
+# install Google protocol buffers packages
+sudo dpkg --install ~/tools/libprotobuf8_2.5.0-9ubuntu1_amd64.deb ~/tools/libprotobuf-dev_2.5.0-9ubuntu1_amd64.deb ~/tools/libprotobuf-lite8_2.5.0-9ubuntu1_amd64.deb ~/tools/libprotoc8_2.5.0-9ubuntu1_amd64.deb ~/tools/libprotoc-dev_2.5.0-9ubuntu1_amd64.deb ~/tools/protobuf-compiler_2.5.0-9ubuntu1_amd64.deb
+

@@ -5,7 +5,7 @@
     mode = most repeated observation
 
 ## Inferential
-Models that let us draw conclusion about poppulation using sample data
+Models that let us draw conclusion about population using sample data
 
 # Data Science
 

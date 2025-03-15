@@ -32,10 +32,6 @@ git push origin BRANCH
 # How to revert a faulty merge (link from Adam)
 https://www.kernel.org/pub/software/scm/git/docs/howto/revert-a-faulty-merge.txt
 
-# find-replace
-on Linux: git grep -l 'original_text' | xargs sed -i 's/original_text/new_text/g'
-on   Mac: git grep -l 'original_text' | xargs sed -i '' -e 's/original_text/new_text/g'
-
 # pull from origin/master ignoring local commits
 git fetch --all; git reset --hard origin/master; git pull
 
@@ -126,41 +122,6 @@ Would be helpful to read - https://git-scm.com/book/en/v2/Git-Basics-Getting-a-G
 //^ - second commit
 //^^ next one - third commit
 
-======================
-
-git config --global alias.f "fetch origin"
-git config --global alias.pm "fetch origin mainline"
-git config --global alias.p "fetch origin"
-git config --global alias.fall "fetch --all"
-git config --global alias.reset-mainline "reset --hard origin/mainline"
-
-
-git config --global alias.au 'add -u'
-git config --global alias.br 'branch'
-git config --global alias.ci-a 'commit --amend'
-git config --global alias.ci 'commit'
-git config --global alias.co 'checkout'
-git config --global alias.cp 'cherry-pick'
-git config --global alias.cpa 'cherry-pick --abort'
-git config --global alias.cpc 'cherry-pick --continue'
-git config --global alias.dag 'log --graph --format="format:%C(yellow)%h%C(reset) %C(blue)'%an' <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s" --date-order'
-git config --global alias.ignored '!git ls-files -v | grep ^[[:lower:]]'
-git config --global alias.la '!git config -l | grep alias | cut -c 7-'
-git config --global alias.last 'log -1 HEAD'
-git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
-git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
-git config --global alias.r 'rebase'
-git config --global alias.ra 'rebase --abort'
-git config --global alias.rc 'rebase --continue'
-git config --global alias.ri 'rebase -i'
-git config --global alias.rs 'rebase --skip'
-git config --global alias.st 'status'
-git config --global alias.unstage 'reset HEAD --'
-git config --global alias.ask 'grep -C 3 --show-function --perl-regexp --break --heading --line-number'
-git config --global alias.uncomit = 'reset --soft HEAD^'
-git config --global alias.commit_back 'commit -c ORIG_HEAD'
-
-========================
 # stash with comment
 git stash save “Your stash message”
 
